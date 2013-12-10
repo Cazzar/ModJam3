@@ -17,7 +17,7 @@ group = 'net.cazzar.mods.modjam3.mcradio'
 def actualVersion = version // I do this for a good reason
 
 minecraft {
-    version = "1.6.4-9.11.1.953" // This is not a big hint from http://ask.fm/iPixel
+    version = "1.6.4-9.11.1.964"
 }
 
 version = "MC-${minecraft.version}-$version"
