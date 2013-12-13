@@ -42,18 +42,30 @@ public class BlockEnderTeleporter extends Block {
     }
 
     @Override
+    public void onBlockClicked(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer) {
+        super.onBlockClicked(par1World, par2, par3, par4, par5EntityPlayer);
+    }
+
+    @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) {
-        {
-            if (player.isSneaking()) {
-                ItemStack held = player.getHeldItem();
+        if (player.isSneaking()) {
+            ItemStack held = player.getHeldItem();
 
-                if (held.getItem() instanceof ItemEnderEye) {
-                    TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
-                    if (tileEntity instanceof TileEntityTeleporter) {
-                        held.stackSize--;
-
+            if (held.getItem() instanceof ItemEnderEye) {
+                TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
+                if (tileEntity instanceof TileEntityTeleporter) {
+                    if (((TileEntityTeleporter) tileEntity).teleportTo == null) {
+                        player.addChatMessage("Teleport Failed!");
+                        return true;
                     }
+
+                    held.stackSize--;
+                    ((TileEntityTeleporter) tileEntity).teleport(player);
+                    return true;
                 }
             }
         }
+
+        return false;
     }
+}

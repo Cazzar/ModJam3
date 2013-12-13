@@ -16,7 +16,7 @@ public class BlockCoord {
     public BlockCoord(String str) {
         List<String> parts = Lists.newArrayList(Splitter.on(',').limit(3).trimResults().split(str));
         for (String s : parts) {
-            List<String> params = Lists.newArrayList(Splitter.on('=').limit(2).omitEmptyStrings().trimResults().split(s));
+            List<String> params = Lists.newArrayList(Splitter.on(':').limit(2).omitEmptyStrings().trimResults().split(s));
 
             if (params.get(0).equals("x")) this.x = Integer.parseInt(params.get(1));
             if (params.get(0).equals("y")) this.y = Integer.parseInt(params.get(1));

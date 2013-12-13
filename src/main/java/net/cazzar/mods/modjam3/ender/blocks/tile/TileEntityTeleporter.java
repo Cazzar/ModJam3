@@ -1,6 +1,7 @@
 package net.cazzar.mods.modjam3.ender.blocks.tile;
 
 import net.cazzar.mods.modjam3.ender.common.util.BlockCoord;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -32,5 +33,9 @@ public class TileEntityTeleporter extends TileEntity {
 
         if (tag.hasKey("tele"))
             teleportTo = new BlockCoord(tag.getString("tele"));
+    }
+
+    public void teleport(EntityPlayer player) {
+        player.moveEntity(teleportTo.x, teleportTo.y, teleportTo.z);
     }
 }
