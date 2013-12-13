@@ -38,7 +38,7 @@ public class ItemSheenPearl extends Item {
                 return true;
             }
 
-            itemStack.stackSize--;
+            itemStack.stackSize = itemStack.stackSize - 1;
             teleporter.teleport(player);
         }
 

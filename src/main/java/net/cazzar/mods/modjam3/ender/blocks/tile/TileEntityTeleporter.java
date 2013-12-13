@@ -12,11 +12,14 @@ import net.minecraft.world.World;
 public class TileEntityTeleporter extends TileEntity {
     public BlockCoord teleportTo;
 
+    public TileEntityTeleporter() {
+        teleportTo = null;
+    }
+
     public TileEntityTeleporter(World world, int metadata) {
         this.worldObj = world;
         this.blockMetadata = metadata;
-
-        System.out.println("TILE LOADED!");
+        teleportTo = null;
     }
 
     @Override
@@ -36,7 +39,8 @@ public class TileEntityTeleporter extends TileEntity {
     }
 
     public void teleport(EntityPlayer player) {
-        player.setPositionAndUpdate(teleportTo.x, teleportTo.y + 1, teleportTo.z);
+        player.setPositionAndUpdate(teleportTo.x + 0.5D, teleportTo.y + 1, teleportTo.z + 0.5D);
+        player.worldObj.spawnParticle("explode", player.posX, player.posY, player.posZ, 1, 1, 1);
     }
 
     public boolean canTeleport() {
