@@ -12,5 +12,6 @@ public class BlockEnderTeleporter extends Block {
         super(id, Material.rock);
         this.setHardness(2.0F);
         this.setCreativeTab(Ender.proxy.tab);
+        setUnlocalizedName("enderTeleporter");
     }
 }

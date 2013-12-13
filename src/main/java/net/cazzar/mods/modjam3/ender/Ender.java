@@ -14,7 +14,8 @@ public class Ender {
     public static CommonProxy proxy;
 
     @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent evet) {
-
+    public void preInit(FMLPreInitializationEvent event) {
+        proxy.initConfig(event.getSuggestedConfigurationFile());
+        proxy.initBlocks();
     }
 }
