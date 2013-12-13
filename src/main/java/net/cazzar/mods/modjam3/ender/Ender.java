@@ -17,5 +17,6 @@ public class Ender {
     public void preInit(FMLPreInitializationEvent event) {
         proxy.initConfig(event.getSuggestedConfigurationFile());
         proxy.initBlocks();
+        proxy.initItems();
     }
 }
