@@ -13,7 +13,7 @@ buildscript {
 
 apply plugin: 'forge'
 version = '1.0'
-group = 'net.cazzar.mods.modjam3.mcradio'
+group = 'net.cazzar.mods.modjam3.ender'
 def actualVersion = version // I do this for a good reason
 
 minecraft {
