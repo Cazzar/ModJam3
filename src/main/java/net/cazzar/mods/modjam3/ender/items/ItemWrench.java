@@ -17,7 +17,6 @@ public class ItemWrench extends Item {
     public ItemWrench(int id) {
         super(id);
         setCreativeTab(Ender.proxy.tab);
-
     }
 
     @Override
@@ -25,6 +24,7 @@ public class ItemWrench extends Item {
         itemIcon = par1IconRegister.registerIcon("ender:wrench");
     }
 
+    @Override
     public void onCreated(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
         if (par1ItemStack.stackTagCompound == null)
             par1ItemStack.setTagCompound(new NBTTagCompound());
@@ -33,6 +33,9 @@ public class ItemWrench extends Item {
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int worldX, int worldY, int worldZ, int side, float playerX, float playerY, float playerZ) {
         if (world.isRemote) return false;
+        if (itemStack.stackTagCompound == null)
+            itemStack.setTagCompound(new NBTTagCompound());
+
         if (world.getBlockTileEntity(worldX, worldY, worldZ) instanceof TileEntityTeleporter) {
             if (!itemStack.getTagCompound().hasKey("link")) {
                 BlockCoord pos = new BlockCoord(worldX, worldY, worldZ);

@@ -36,6 +36,10 @@ public class TileEntityTeleporter extends TileEntity {
     }
 
     public void teleport(EntityPlayer player) {
-        player.moveEntity(teleportTo.x, teleportTo.y, teleportTo.z);
+        player.setPositionAndUpdate(teleportTo.x, teleportTo.y + 1, teleportTo.z);
+    }
+
+    public boolean canTeleport() {
+        return teleportTo != null;
     }
 }

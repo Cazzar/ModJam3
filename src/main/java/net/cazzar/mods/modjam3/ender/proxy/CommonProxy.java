@@ -5,6 +5,7 @@ import net.cazzar.mods.modjam3.ender.blocks.BlockEnderTeleporter;
 import net.cazzar.mods.modjam3.ender.blocks.tile.TileEntityTeleporter;
 import net.cazzar.mods.modjam3.ender.common.Config;
 import net.cazzar.mods.modjam3.ender.common.EnderCreativeTab;
+import net.cazzar.mods.modjam3.ender.items.ItemSheenPearl;
 import net.cazzar.mods.modjam3.ender.items.ItemWrench;
 import net.minecraftforge.common.Configuration;
 
@@ -19,6 +20,7 @@ public class CommonProxy {
 
     public void initItems() {
         GameRegistry.registerItem(new ItemWrench(config.wrenchID), "itemWrench");
+        GameRegistry.registerItem(new ItemSheenPearl(config.pearlID), "itemSheenPearl");
     }
 
     public static class Blocks {
@@ -31,6 +33,7 @@ public class CommonProxy {
 
         config.teleporterID = configuration.get("block", "teleporterID", config.teleporterID).getInt();
         config.wrenchID = configuration.get("block", "wrenchID", config.wrenchID).getInt();
+        config.pearlID = configuration.get("block", "pearlID", config.pearlID).getInt();
     }
 
     public void initBlocks() {
