@@ -51,6 +51,7 @@ public class BlockEnderTeleporter extends Block {
         if (player.isSneaking()) {
             ItemStack held = player.getHeldItem();
 
+            if (held == null) return false;
             if (held.getItem() instanceof ItemEnderEye) {
                 TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
                 if (tileEntity instanceof TileEntityTeleporter) {

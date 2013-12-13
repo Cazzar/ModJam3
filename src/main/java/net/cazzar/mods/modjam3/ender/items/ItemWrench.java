@@ -43,7 +43,6 @@ public class ItemWrench extends Item {
                 player.addChatMessage("Started linking...");
                 itemStack.getTagCompound().setString("link", pos.toString());
             } else {
-                player.addChatMessage("Linked!");
                 BlockCoord posOther = new BlockCoord(itemStack.getTagCompound().getString("link"));
                 BlockCoord posThis = new BlockCoord(worldX, worldY, worldZ);
                 TileEntityTeleporter tile = (TileEntityTeleporter) posThis.getTile(world);
@@ -60,6 +59,7 @@ public class ItemWrench extends Item {
 
 
                 itemStack.getTagCompound().removeTag("link");
+                player.addChatMessage("Linked!");
             }
             return true;
         }
