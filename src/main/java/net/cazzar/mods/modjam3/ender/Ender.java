@@ -18,5 +18,6 @@ public class Ender {
         proxy.initConfig(event.getSuggestedConfigurationFile());
         proxy.initBlocks();
         proxy.initItems();
+        proxy.registerRecipes();
     }
 }
