@@ -21,6 +21,8 @@ public class CommonProxy {
     public Config config;
 
     public void initItems() {
+        if (config == null) throw new RuntimeException("initConfig() has not been called yet.");
+
         GameRegistry.registerItem(Items.wrench = new ItemWrench(config.wrenchID), "itemWrench");
         GameRegistry.registerItem(Items.sheenPearl = new ItemSheenPearl(config.pearlID), "itemSheenPearl");
     }
@@ -28,6 +30,7 @@ public class CommonProxy {
     public static class Blocks {
         public static BlockEnderTeleporter enderTeleporter;
     }
+
     public static class Items {
         public static ItemWrench wrench;
         public static ItemSheenPearl sheenPearl;
